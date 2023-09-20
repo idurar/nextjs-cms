@@ -1,23 +1,39 @@
 {
-  "name": "ivoprint",
+  "name": "nextjs-cms",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "npm run schema && graphql-codegen --config codegen.yml",
+    "schema": "node ./scripts/generateSchema"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.4",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
     "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "antd": "^5.9.2",
+    "apollo-server-micro": "^3.12.1",
+    "deepmerge": "^4.3.1",
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.2",
+    "fast-graphql": "^2.0.2",
+    "graphql": "^16.8.1",
+    "lodash": "^4.17.21",
+    "micro": "^10.0.1",
+    "mongoose": "^7.5.2",
+    "mongoose-autopopulate": "^1.0.1",
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.198"
   }
 }
