@@ -1,10 +1,10 @@
 import { combineResolvers, resolverType } from 'fast-graphql';
 
-import user from './user';
-import place from './place';
-import review from './review';
 
-const resolvers: resolverType[] = [place, user, review];
+import company from './company';
+
+
+const resolvers: resolverType[] = [company];
 
 const cominedResolvers = combineResolvers({ resolvers });
 

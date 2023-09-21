@@ -92,6 +92,7 @@ function crudMethods<T>(ModelEntity: Model<T>) {
         const countPromise = ModelEntity.count();
         // Resolving both promises
         const [result, count] = await Promise.all([resultsPromise, countPromise]);
+        console.log("🚀 ~ file: crudMethods.ts:95 ~ list: ~ result:", result)
 
         // Calculating total pages
         const pages = Math.ceil(count / limit);

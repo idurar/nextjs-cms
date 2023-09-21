@@ -14,128 +14,86 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type InputPlaceType = {
-  desciption: Scalars['String']['input'];
-  mainPhoto: Scalars['String']['input'];
-  owner: Scalars['ID']['input'];
-  photos: Array<InputMaybe<Scalars['String']['input']>>;
-  priceByNight: Scalars['Float']['input'];
-  type: Scalars['String']['input'];
+export type Company = {
+  __typename?: 'Company';
+  _id: Scalars['ID']['output'];
+  activity?: Maybe<Scalars['String']['output']>;
+  address?: Maybe<Scalars['String']['output']>;
+  cell?: Maybe<Scalars['String']['output']>;
+  companyName?: Maybe<Scalars['String']['output']>;
+  created?: Maybe<Scalars['Float']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  facebook?: Maybe<Scalars['String']['output']>;
+  logo?: Maybe<Scalars['String']['output']>;
+  managerName?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  sectorActivity?: Maybe<Scalars['String']['output']>;
+  services?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  website?: Maybe<Scalars['String']['output']>;
 };
 
-export type InputReviewType = {
-  author: Scalars['ID']['input'];
-  feedback?: InputMaybe<Scalars['String']['input']>;
-  place: Scalars['ID']['input'];
-  rate: Scalars['Float']['input'];
+export type EdgesType = {
+  __typename?: 'EdgesType';
+  edges?: Maybe<Array<Maybe<Company>>>;
+  pagination?: Maybe<PaginationType>;
 };
 
-export type InputUserType = {
+export type InputCompanyType = {
+  activity: Scalars['String']['input'];
+  address: Scalars['String']['input'];
+  cell?: InputMaybe<Scalars['String']['input']>;
+  companyName: Scalars['String']['input'];
   email: Scalars['String']['input'];
-  name: Scalars['String']['input'];
+  facebook?: InputMaybe<Scalars['String']['input']>;
+  logo?: InputMaybe<Scalars['String']['input']>;
+  managerName: Scalars['String']['input'];
+  phone?: InputMaybe<Scalars['String']['input']>;
+  sectorActivity: Scalars['String']['input'];
+  services?: InputMaybe<Scalars['String']['input']>;
+  state: Scalars['String']['input'];
+  website?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createPlace?: Maybe<Place>;
-  createReview?: Maybe<Review>;
-  createUser?: Maybe<User>;
-  deletePlace?: Maybe<Place>;
-  deleteReview?: Maybe<Review>;
-  deleteUser?: Maybe<User>;
-  updatePlace?: Maybe<Place>;
-  updateReview?: Maybe<Review>;
-  updateUser?: Maybe<User>;
+  create?: Maybe<Company>;
+  delete?: Maybe<Company>;
+  update?: Maybe<Company>;
 };
 
 
-export type MutationCreatePlaceArgs = {
-  body: InputPlaceType;
+export type MutationCreateArgs = {
+  body: InputCompanyType;
 };
 
 
-export type MutationCreateReviewArgs = {
-  body: InputReviewType;
-};
-
-
-export type MutationCreateUserArgs = {
-  body: InputUserType;
-};
-
-
-export type MutationDeletePlaceArgs = {
+export type MutationDeleteArgs = {
   _id: Scalars['ID']['input'];
 };
 
 
-export type MutationDeleteReviewArgs = {
+export type MutationUpdateArgs = {
   _id: Scalars['ID']['input'];
-};
-
-
-export type MutationDeleteUserArgs = {
-  _id: Scalars['ID']['input'];
-};
-
-
-export type MutationUpdatePlaceArgs = {
-  _id: Scalars['ID']['input'];
-  body: InputPlaceType;
-};
-
-
-export type MutationUpdateReviewArgs = {
-  _id: Scalars['ID']['input'];
-  body: InputReviewType;
-};
-
-
-export type MutationUpdateUserArgs = {
-  _id: Scalars['ID']['input'];
-  body: InputUserType;
+  body: InputCompanyType;
 };
 
 export type PaginationType = {
   __typename?: 'PaginationType';
-  count: Scalars['Int']['output'];
-  page: Scalars['Int']['output'];
-  pages: Scalars['Int']['output'];
-};
-
-export type Place = {
-  __typename?: 'Place';
-  _id: Scalars['ID']['output'];
-  desciption?: Maybe<Scalars['String']['output']>;
-  mainPhoto?: Maybe<Scalars['String']['output']>;
-  owner?: Maybe<User>;
-  photos?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  priceByNight?: Maybe<Scalars['Float']['output']>;
-  reviews?: Maybe<Array<Maybe<Review>>>;
-};
-
-export type PlaceEdgesType = {
-  __typename?: 'PlaceEdgesType';
-  edges?: Maybe<Array<Maybe<Place>>>;
-  pagination?: Maybe<PaginationType>;
+  count?: Maybe<Scalars['Int']['output']>;
+  page?: Maybe<Scalars['Int']['output']>;
+  pages?: Maybe<Scalars['Int']['output']>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  listPlace?: Maybe<PlaceEdgesType>;
-  listReview?: Maybe<ReviewEdgesType>;
-  listUser?: Maybe<UserEdgesType>;
-  readPlace?: Maybe<Place>;
-  readReview?: Maybe<Review>;
-  readUser?: Maybe<User>;
-  reviewByUser?: Maybe<Array<Maybe<Review>>>;
-  searchPlace?: Maybe<Array<Maybe<Place>>>;
-  searchReview?: Maybe<Array<Maybe<Review>>>;
-  searchUser?: Maybe<Array<Maybe<User>>>;
+  listCompany?: Maybe<EdgesType>;
+  read?: Maybe<Company>;
+  search?: Maybe<Array<Maybe<Company>>>;
 };
 
 
-export type QueryListPlaceArgs = {
+export type QueryListCompanyArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   page?: InputMaybe<Scalars['Int']['input']>;
   sortBy?: InputMaybe<Scalars['String']['input']>;
@@ -143,87 +101,13 @@ export type QueryListPlaceArgs = {
 };
 
 
-export type QueryListReviewArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  page?: InputMaybe<Scalars['Int']['input']>;
-  sortBy?: InputMaybe<Scalars['String']['input']>;
-  sortOrder?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type QueryListUserArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  page?: InputMaybe<Scalars['Int']['input']>;
-  sortBy?: InputMaybe<Scalars['String']['input']>;
-  sortOrder?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type QueryReadPlaceArgs = {
+export type QueryReadArgs = {
   _id: Scalars['ID']['input'];
 };
 
 
-export type QueryReadReviewArgs = {
-  _id: Scalars['ID']['input'];
-};
-
-
-export type QueryReadUserArgs = {
-  _id: Scalars['ID']['input'];
-};
-
-
-export type QueryReviewByUserArgs = {
-  _id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
-export type QuerySearchPlaceArgs = {
+export type QuerySearchArgs = {
   fields: Scalars['String']['input'];
   limit?: InputMaybe<Scalars['Int']['input']>;
   query: Scalars['String']['input'];
-};
-
-
-export type QuerySearchReviewArgs = {
-  fields: Scalars['String']['input'];
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  query: Scalars['String']['input'];
-};
-
-
-export type QuerySearchUserArgs = {
-  fields: Scalars['String']['input'];
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  query: Scalars['String']['input'];
-};
-
-export type Review = {
-  __typename?: 'Review';
-  _id: Scalars['ID']['output'];
-  author?: Maybe<User>;
-  feedback?: Maybe<Scalars['String']['output']>;
-  place?: Maybe<Scalars['ID']['output']>;
-  rate?: Maybe<Scalars['Float']['output']>;
-};
-
-export type ReviewEdgesType = {
-  __typename?: 'ReviewEdgesType';
-  edges?: Maybe<Array<Maybe<Review>>>;
-  pagination?: Maybe<PaginationType>;
-};
-
-export type User = {
-  __typename?: 'User';
-  _id: Scalars['ID']['output'];
-  email?: Maybe<Scalars['String']['output']>;
-  name?: Maybe<Scalars['String']['output']>;
-  photo?: Maybe<Scalars['String']['output']>;
-};
-
-export type UserEdgesType = {
-  __typename?: 'UserEdgesType';
-  edges?: Maybe<Array<Maybe<User>>>;
-  pagination: PaginationType;
 };
