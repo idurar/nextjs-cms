@@ -20,15 +20,20 @@ export type Company = {
   activity?: Maybe<Scalars['String']['output']>;
   address?: Maybe<Scalars['String']['output']>;
   cell?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
   companyName?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
   created?: Maybe<Scalars['Float']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   facebook?: Maybe<Scalars['String']['output']>;
+  lang?: Maybe<Scalars['String']['output']>;
   logo?: Maybe<Scalars['String']['output']>;
   managerName?: Maybe<Scalars['String']['output']>;
   phone?: Maybe<Scalars['String']['output']>;
+  products?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   sectorActivity?: Maybe<Scalars['String']['output']>;
   services?: Maybe<Scalars['String']['output']>;
+  slug?: Maybe<Scalars['String']['output']>;
   state?: Maybe<Scalars['String']['output']>;
   website?: Maybe<Scalars['String']['output']>;
 };
@@ -43,37 +48,40 @@ export type InputCompanyType = {
   activity: Scalars['String']['input'];
   address: Scalars['String']['input'];
   cell?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
   companyName: Scalars['String']['input'];
+  country?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
   facebook?: InputMaybe<Scalars['String']['input']>;
   logo?: InputMaybe<Scalars['String']['input']>;
   managerName: Scalars['String']['input'];
   phone?: InputMaybe<Scalars['String']['input']>;
+  products?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectorActivity: Scalars['String']['input'];
   services?: InputMaybe<Scalars['String']['input']>;
-  state: Scalars['String']['input'];
+  state?: InputMaybe<Scalars['String']['input']>;
   website?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
-  create?: Maybe<Company>;
-  delete?: Maybe<Company>;
-  update?: Maybe<Company>;
+  createCompany?: Maybe<Company>;
+  deleteCompany?: Maybe<Company>;
+  updateCompany?: Maybe<Company>;
 };
 
 
-export type MutationCreateArgs = {
+export type MutationCreateCompanyArgs = {
   body: InputCompanyType;
 };
 
 
-export type MutationDeleteArgs = {
+export type MutationDeleteCompanyArgs = {
   _id: Scalars['ID']['input'];
 };
 
 
-export type MutationUpdateArgs = {
+export type MutationUpdateCompanyArgs = {
   _id: Scalars['ID']['input'];
   body: InputCompanyType;
 };
@@ -88,8 +96,8 @@ export type PaginationType = {
 export type Query = {
   __typename?: 'Query';
   listCompany?: Maybe<EdgesType>;
-  read?: Maybe<Company>;
-  search?: Maybe<Array<Maybe<Company>>>;
+  readCompany?: Maybe<Company>;
+  searchCompany?: Maybe<Array<Maybe<Company>>>;
 };
 
 
@@ -101,12 +109,12 @@ export type QueryListCompanyArgs = {
 };
 
 
-export type QueryReadArgs = {
+export type QueryReadCompanyArgs = {
   _id: Scalars['ID']['input'];
 };
 
 
-export type QuerySearchArgs = {
+export type QuerySearchCompanyArgs = {
   fields: Scalars['String']['input'];
   limit?: InputMaybe<Scalars['Int']['input']>;
   query: Scalars['String']['input'];

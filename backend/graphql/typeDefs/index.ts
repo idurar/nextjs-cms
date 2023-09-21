@@ -5,7 +5,11 @@ export default `type Company {
   managerName: String
   activity: String
   sectorActivity: String
+  products:[String]
+  country:String
   state:String
+  city:String
+  lang:String
   address:String
   phone:String
   cell:String
@@ -13,7 +17,8 @@ export default `type Company {
   website:String
   facebook:String
   services:String
-  created:Float
+  slug:String
+  created:Float  
 }
 
 input InputCompanyType {
@@ -22,7 +27,10 @@ input InputCompanyType {
   managerName: String!
   activity: String!
   sectorActivity: String!
-  state:String!
+  products:[String]
+  country:String
+  state:String
+  city:String
   address:String!
   phone:String
   cell:String
@@ -33,9 +41,9 @@ input InputCompanyType {
 }
 
 type Mutation {
-  create(body: InputCompanyType!): Company
-  update(_id: ID!, body: InputCompanyType!): Company
-  delete(_id: ID!): Company
+  createCompany(body: InputCompanyType!): Company
+  updateCompany(_id: ID!, body: InputCompanyType!): Company
+  deleteCompany(_id: ID!): Company
 }
 
 type PaginationType {
@@ -50,8 +58,8 @@ type EdgesType {
 }
 
 type Query {
-  read(_id: ID!): Company
+  readCompany(_id: ID!): Company
   listCompany(page: Int, limit: Int, sortBy: String, sortOrder: String): EdgesType
-  search(limit: Int, query: String!, fields: String!): [Company]
+  searchCompany(limit: Int, query: String!, fields: String!): [Company] 
 }
 `;
