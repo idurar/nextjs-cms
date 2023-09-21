@@ -1,13 +1,9 @@
-import '@/styles/globals.css'
-import '@/styles/app.css'
-import type { AppProps } from 'next/app'
-
+import '@/styles/app.css';
+import type { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@/apollo';
 
-
-
-export default function App({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps);
 
   return (
@@ -16,3 +12,4 @@ export default function App({ Component, pageProps }: AppProps) {
     </ApolloProvider>
   );
 }
+export default MyApp;

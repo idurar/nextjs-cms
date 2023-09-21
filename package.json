@@ -11,6 +11,7 @@
     "schema": "node ./scripts/generateSchema"
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.6.23",
     "@apollo/client": "^3.8.4",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/typescript": "^4.0.1",

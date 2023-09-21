@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import CompanyList from '@/components/CompanyList'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,14 +41,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
+         <CompanyList/>
         </div>
 
         <div className={styles.grid}>

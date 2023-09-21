@@ -1,0 +1,33 @@
+.site-layout {
+  background: #f9fafc !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700 !important;
+}
+
+.ant-card-actions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  border-radius: 0 0 12px 12px;
+}
+
+.ant-card {
+  border-radius: 12px;
+
+}
+
+.ant-card:hover {
+  box-shadow:  0px 0px 24px 6px rgba(150, 190, 238, 0.15);;
+}
