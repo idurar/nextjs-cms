@@ -4,47 +4,43 @@ import { List } from 'antd';
 import CompanyCard from '@/components/CompanyCard';
 
 export const LIST_COMPANY_QUERY = gql`
-query Query($page: Int) {
-  listCompany(page: $page) {
-    edges {
-      _id
-      activity
-      cell
-      address
-      city
-      companyName
-      country
-      created
-      email
-      facebook
-      lang
-      logo
-      managerName
-      phone
-      sectorActivity
-      services
-      slug
-      state
-      website
-    }
-    pagination {
-      count
-      page
-      pages
+  query Query($page: Int) {
+    listCompany(page: $page) {
+      edges {
+        _id
+        activity
+        cell
+        address
+        city
+        companyName
+        country
+        created
+        email
+        facebook
+        lang
+        logo
+        managerName
+        phone
+        sectorActivity
+        services
+        slug
+        state
+        website
+      }
+      pagination {
+        count
+        page
+        pages
+      }
     }
   }
-}
 `;
 
 export const listCompanyQueryVars = {
   page: 1,
 };
 
-
 export default function CompanyList() {
-  
-  
-
   const { loading, error, data } = useQuery(LIST_COMPANY_QUERY, {
     variables: listCompanyQueryVars,
   });
@@ -69,7 +65,4 @@ export default function CompanyList() {
       )}
     />
   );
-};
-
-
-
+}
