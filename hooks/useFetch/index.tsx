@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function useFetchData(fetchFunction) {
+function useFetchData(fetchFunction: any) {
   const [data, setData] = useState();
   const [isLoading, setLoading] = useState(true);
   const [isSuccess, setSuccess] = useState(false);
@@ -12,7 +12,7 @@ function useFetchData(fetchFunction) {
         const data = await fetchFunction();
         setData(data.result);
         setSuccess(true);
-      } catch (error) {
+      } catch (error: any) {
         setError(error);
       } finally {
         setLoading(false);
@@ -25,8 +25,14 @@ function useFetchData(fetchFunction) {
   return { data, isLoading, isSuccess, error };
 }
 
-export default function useFetch(fetchFunction) {
-  const { data = {items:[]}, isLoading, isSuccess, error } = useFetchData(fetchFunction);
+export default function useFetch(fetchFunction: any) {
+  const {
+    data,
+    isLoading,
+    isSuccess,
+    error,
+  }: { data: any; isLoading: Boolean; isSuccess: Boolean; error: any } =
+    useFetchData(fetchFunction);
 
   return { result: data, isLoading, isSuccess, error };
 }
