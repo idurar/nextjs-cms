@@ -10,24 +10,25 @@ export type searchOptionsType = {
   [key in keyof optionsType]?: optionsType[key];
 };
 
-export interface repoType {
-  id: string;
-  full_name: string;
-  stargazers_count: number;
-  language: string;
-  html_url: string;
-  description: string;
-}
-
-export interface githubStateType {
-  languageList: string[];
-  favorList: string[];
-  search: {
-    result: { items: repoType[] };
-    isLoading: boolean;
-    isSuccess: boolean;
-  };
-  [key: string]: any;
+export interface Company {
+  companyName: String;
+  logo: String;
+  managerName: String;
+  activity: String;
+  sectorActivity: String;
+  products: [String];
+  country: String;
+  state: String;
+  city: String;
+  lang: String;
+  address: String;
+  phone: String;
+  cell: String;
+  email: String;
+  website: String;
+  facebook: String;
+  services: String;
+  slug: String;
 }
 
 export type favorType = 'all' | 'favored' | 'unfavored';

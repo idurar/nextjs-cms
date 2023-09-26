@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Layout } from 'antd';
+import { ReduxProvider } from '@/redux/provider';
 
 const { Content } = Layout;
 
@@ -11,7 +12,9 @@ type DefaultLayoutProps = {
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   return (
     <Layout className="site-layout">
-      <Content className="contentLayout">{children}</Content>
+      <ReduxProvider>
+        <Content className="contentLayout">{children}</Content>
+      </ReduxProvider>
     </Layout>
   );
 };
