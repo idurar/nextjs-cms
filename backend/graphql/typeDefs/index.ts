@@ -38,6 +38,8 @@ input InputCompanyType {
   website:String
   facebook:String
   services:String
+  slug: String!
+  lang: String!
 }
 
 type Mutation {
